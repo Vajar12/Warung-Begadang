@@ -75,13 +75,15 @@ let namaBarang, harga;
 let kodeBarang = kodeJenis + kodeNama;
 let jumlahBeli = prompt ("Masukkan Jumlah Pembelian: \n [ket: 1-10]");
 let totalHarga = jumlahBeli * harga;
+
 let diskon = 0.1;
-let totalBayar;
+let totalDiskon;
 if (totalHarga > 50000 && namaBarang == "Shampoo" || namaBarang == "Minyak Goreng") {
-    totalBayar = totalHarga - (totalHarga * diskon);
-} else {
-    totalBayar = totalHarga;
-}
+    totalDiskon = totalHarga * diskon;
+} else { totalDiskon = totalHarga * 0}
+
+let totalBayar = totalHarga - totalDiskon;
+
 let kodeKasir = prompt ("Masukkan Kode Kasir: \n [ket: 1 = Imel Meilan | 2 = Fajar Harun | 3 = Abdul Mutorib]");
 let namaKasir;
     if (kodeKasir == 1) {
@@ -100,6 +102,6 @@ console.log( "Jenis Barang: " + jenisBarang);
 console.log( "Harga Satuan: " + harga);
 console.log( "Jumlah Pembalian: " + jumlahBeli);
 console.log( "Total Harga: " + totalHarga);
-console.log( "Diskon: " + (totalHarga * diskon));
+console.log( "Diskon: " + totalDiskon);
 console.log( "Total Pembayaran: " + totalBayar);
 console.log("====== Kasir: " + namaKasir + " ======");
